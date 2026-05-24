@@ -1,0 +1,5 @@
+{
+  "name": "ACT Reflection Assistant",
+  "description": "A clinical supervision tool for counselors using Acceptance and Commitment Therapy (ACT) to analyze session notes and generate reflection sheets.",
+  "requestFramePermissions": []
+}

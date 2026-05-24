@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Custom Markdown Styling */
+.markdown-body h2 {
+  @apply text-2xl font-serif font-light mt-8 mb-4 text-[#5A5A40] border-b border-[#5A5A40]/10 pb-2;
+}
+
+.markdown-body h3 {
+  @apply text-xl font-serif font-medium mt-6 mb-3 text-[#1a1a1a];
+}
+
+.markdown-body p {
+  @apply mb-4 leading-relaxed text-[#1a1a1a]/80;
+}
+
+.markdown-body ul {
+  @apply list-disc list-inside mb-4 space-y-2;
+}
+
+.markdown-body li {
+  @apply text-[#1a1a1a]/80;
+}
+
+.markdown-body strong {
+  @apply text-[#5A5A40] font-semibold;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-[#5A5A40]/20 pl-4 italic my-4 text-[#1a1a1a]/60;
+}
+
+/* PDF Export Specific Styles - Using Standard CSS to avoid oklab/oklch errors in html2canvas */
+.pdf-export-content {
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+  font-family: serif !important;
+  padding: 40px !important;
+}
+
+.pdf-export-content h2 {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  color: #5A5A40 !important;
+  border-bottom: 1px solid #cccccc !important;
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 8px !important;
+}
+
+.pdf-export-content h3 {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: #1a1a1a !important;
+  margin-top: 20px !important;
+  margin-bottom: 12px !important;
+}
+
+.pdf-export-content p {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #333333 !important;
+  margin-bottom: 12px !important;
+}
+
+.pdf-export-content ul {
+  margin-bottom: 16px !important;
+  padding-left: 20px !important;
+}
+
+.pdf-export-content li {
+  font-size: 14px !important;
+  margin-bottom: 8px !important;
+  color: #333333 !important;
+}
+
+.pdf-export-content strong {
+  color: #5A5A40 !important;
+  font-weight: bold !important;
+}
+
+.pdf-export-content blockquote {
+  border-left: 4px solid #dddddd !important;
+  padding-left: 16px !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  margin: 16px 0 !important;
+}
+
+/* Ensure page breaks don't cut off content in PDF */
+.pdf-export-content h2, 
+.pdf-export-content h3 {
+  page-break-after: avoid !important;
+}
+
+.pdf-export-content p, 
+.pdf-export-content li {
+  page-break-inside: avoid !important;
+}
